@@ -78,15 +78,30 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'HOST': os.environ.get('DB_HOST'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+
+DB_NAME = os.environ.get('DB_NAME')
+DB_HOST = os.environ.get('DB_HOST')
+DB_USER = os.environ.get('DB_USER')
+DB_PASS = os.environ.get('DB_PASS')
+
+DB_IS_AVAIL = all([
+    DB_NAME,
+    DB_HOST,
+    DB_USER,
+    DB_PASS,
+])
+
+
+if DB_IS_AVAIL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': DB_NAME,
+            'HOST': DB_HOST,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASS,
+        }
     }
-}
 
 
 # Password validation
