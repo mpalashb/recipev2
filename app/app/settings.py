@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core',  # installed app
+    'user',  # installed app
+    'rest_framework',  # added djangorestframework here
+    'drf_spectacular',  # added drf spectacular
 ]
 
 MIDDLEWARE = [
@@ -119,6 +122,10 @@ USE_TZ = True
 # Custom user model
 AUTH_USER_MODEL = 'core.User'
 
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
