@@ -47,7 +47,7 @@ class PublicUserApiTest(TestCase):
             'password': 'TestPass1234'
         }
 
-        create_user(payload)
+        create_user(**payload)
 
         res = self.client.post(
             CREATE_USER_URL,
