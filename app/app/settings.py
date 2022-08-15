@@ -100,6 +100,7 @@ if DB_IS_AVAIL:
             'HOST': DB_HOST,
             'USER': DB_USER,
             'PASSWORD': DB_PASS,
+            'PORT': '5432'
         }
     }
 
